@@ -23,12 +23,10 @@ printf("Think of 4 digits, at least one of which is different from the rest.\n"
 	
 	/* Obtain digits in array form */
 	for (l = 0; l <= 89; l++){
-		// printf("%d: %d ", l+1, brute[l]);
 		for (k = 0; k <= 3; k++){
-		 	greater_brute[l][k] = (   brute[l]/(  (int)pow(10, (3-k))  )   )   %10; // stores digits of 4 digit numbers in array
-		 	// printf("%d ", greater_brute[k][l]);
+		 	greater_brute[l][k] = (   brute[l]/(  (int)pow(10, (3-k))  )   )   %10; 
+			// stores digits of 4 digit numbers in array
 		 }
-		//  printf("\n");
 	}
 		
 	
@@ -49,9 +47,14 @@ printf("Think of 4 digits, at least one of which is different from the rest.\n"
 				while (o <= 3 && n != m){
 					p=0;
 					while (p <= 3 && o != n && o != m && n != m){
-						if (d1 == greater_brute[q][m] && d2 == greater_brute[q][n] && d3 == greater_brute[q][o] && p != o && p != n && p != m){
+						if (d1 == greater_brute[q][m] && 
+						    d2 == greater_brute[q][n] && 
+						    d3 == greater_brute[q][o] && 
+						    p != o && p != n && p != m){
 						 	ans = greater_brute[q][p];
-						 	printf("Success! Digit missing from %d given digits(in position) - %d(%d), %d(%d), %d(%d): %d(%d)\n", brute[q], d1, m+1, d2, n+1, d3, o+1, ans, p+1);
+						 	printf("Success! Digit missing from %d given digits(in position) - " 
+							       "%d(%d), %d(%d), %d(%d): %d(%d)\n", 
+							       brute[q], d1, m+1, d2, n+1, d3, o+1, ans, p+1);
 						 	q++;
 						 	goto answerobtained;
 						}
